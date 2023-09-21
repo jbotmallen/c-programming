@@ -47,6 +47,12 @@ typedef struct entry {
 	int avail;	
 } LIST;
 
+typedef struct node {
+	LIST student;
+	int head;
+	struct node* next;
+} *BLOCK;
+
 //MISCELLANEOUS FUNCTIONS
 int check(int boolean);
 
@@ -65,6 +71,7 @@ int insertFirst(LIST* L, int* head, Student student);
 int insertLast(LIST* L, int* head, Student student);
 int deleteFirst(LIST* L, int *head);
 int deleteLast(LIST* L, int *head);
+int deleteFirstOccurence(LIST* L, CLIST* head, int id);
 int insertSortedByLastName(LIST* L, int *head, Student student);
 void displayList(LIST L, int head);
 

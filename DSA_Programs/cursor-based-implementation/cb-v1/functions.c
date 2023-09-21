@@ -160,9 +160,7 @@ int insertSortedByLastName(LIST* L, int *head, Student student)
 	{
 		CLIST x;
 
-		for(x = *head; x != -1 && strcmp(L->stud[x].stud.studName.LN, student.studName.LN) < 0; x = L->stud[x].next) {
-			printf("%d %d\n\n", x, strcmp(L->stud[x].stud.studName.LN, student.studName.LN));
-		}
+		for(x = *head; x != -1 && strcmp(L->stud[x].stud.studName.LN, student.studName.LN) < 0; x = L->stud[x].next) {}
 		if(x != -1) {
 			CLIST temp = allocSpace(L);
 
@@ -218,6 +216,26 @@ int deleteLast(LIST* L, int *head)
 	}
 
 	return retval;
+}
+
+int deleteFirstOccurence(LIST* L, CLIST* head, int id)
+{
+	int retVal = 0;
+
+	if(*head != -1) {
+		CLIST* trav;
+
+		for(trav = head; *trav != -1 && L->stud[*trav].stud.id != id; trav = &L->stud[*trav].next){}
+
+		if(*trav != -1) {
+			CLIST temp = *trav;
+			*trav = L->stud[temp].next;
+			deallocSpace(L, temp);
+			retVal = 3;
+		}
+	}
+
+	return retVal;
 }
 
 //PRINT DETAILS

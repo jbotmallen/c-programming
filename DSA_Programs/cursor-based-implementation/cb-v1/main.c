@@ -31,10 +31,13 @@ int main()
 											createBirthDate(13, 9, 2004), createStudInfo("BS IT", "DCISM", 1.69, 2),
 											"NON-BLOCK", 22105047)));
 
+	//PRINTING
+	displayList(list, head);
+
 	//DELETE FIRST
-	// check(deleteFirst(&list, &head));
-	// check(deleteLast(&list, &head));
-	// check(deleteLast(&list, &head));
+	check(deleteFirst(&list, &head));
+	check(deleteLast(&list, &head));
+	check(deleteFirstOccurence(&list, &head, 22105047));
 
 	//PRINTING
 	displayList(list, head);

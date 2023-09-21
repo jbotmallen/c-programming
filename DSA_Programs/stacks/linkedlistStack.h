@@ -11,7 +11,7 @@ typedef struct node{
 } *Stack;
 
 //MISCELLANEOUS
-char line[20] = {"=============="};
+char line[30] = {"=============="};
 
 int initialize(Stack* S);
 int push(Stack* S, int elem);
@@ -111,14 +111,12 @@ int insertBottom(Stack* S, int elem)
     for(; !isEmpty(*S);) {
         push(&temp, (*S)->elem);
         pop(S);
-        printf(" | %d | ", temp->elem);
     }
     push(S, elem);
     printf("\n\n");
     for(; !isEmpty(temp);) {
         push(S, temp->elem);
         pop(&temp);
-        printf(" | %d | ", (*S)->elem);
     }
 
     return retval = 1;

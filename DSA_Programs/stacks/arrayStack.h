@@ -12,7 +12,7 @@ typedef struct {
 } Stack;
 
 //MISCELLANEOUS
-char line[30] = {"==========================="};
+char line[30] = {"=============="};
 
 //FUNCTION PROTOTYPES
 int initialize(Stack* S);
@@ -120,9 +120,9 @@ void display(Stack S)
     if(!isEmpty(S)) {
         Stack temp;
 
-        printf("THE ELEMENTS OF THE LIST : \n%20s\n| %10s | %10s |\n%10s\n", line, "ELEM", "IDX", line);
+        printf("THE ELEMENTS OF THE LIST : \n%10s%10s\n| %10s | %10s  |\n%10s%10s\n", line, line, "ELEM", "POSITION", line, line);
         for(initialize(&temp); !isEmpty(S); ) {
-            printf("| %10d | %10d |\n%10s\n", S.elem[S.top-1], S.top-1, line);
+            printf("| %10d | %10d  |\n%10s%10s\n", S.elem[S.top-1], S.top-1, line, line);
             push(&temp, S.elem[S.top-1]);
             pop(&S);
         }
