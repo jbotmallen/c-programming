@@ -29,26 +29,19 @@ void delete(SET* A, int idx)
 int member(SET A, int idx)
 {
     SET mask = 1<<(idx);
-    return ((A & mask) != 0) ? 1 : 0;
+    return ((A & mask) != 0);
 }
 
 SET UNION(SET A, SET B) 
 {
     SET C;
-    
-    C = (A | B);
-
-    return C;
+    return C = (A | B);
 }
 
 SET INTERSECTION(SET A, SET B)
 {
     SET C;
-
-    initialize(&C);
-    C = (A & B);
-
-    return C;
+    return C = (A & B);
 }
 
 SET DIFFERENCE(SET A, SET B)

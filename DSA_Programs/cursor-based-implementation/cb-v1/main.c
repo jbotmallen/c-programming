@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include"declaration.h"
+#include"functions.c"
 
 int main()
 {
@@ -11,7 +12,7 @@ int main()
 	check(initList(&list));
 	
 	//INSERTS
-	check(insertFirst(&list, &head, createStudentEntry(createStudentName("ETHAN", "MONTERA", 'D'),
+	check(insertLast(&list, &head, createStudentEntry(createStudentName("ETHAN", "MONTERA", 'D'),
 							   createBirthDate(1, 12, 2003), createStudInfo("BS CS", "DCISM", 1.44, 2),
 							   "NON-BLOCK", 21600092)));
 

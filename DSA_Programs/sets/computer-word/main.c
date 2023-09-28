@@ -28,6 +28,7 @@ int main()
     displayBitPattern(A);
     displaySet(A);
     printf("===================================\n");
+    member(A, 4) ? printf("IS A MEMBER\n") : printf("IS NOT A MEMBER\n");
 
     printf("===================================\n");
     printf("THIS IS THE BIT PATTERN OF SET B : ");

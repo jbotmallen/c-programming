@@ -121,11 +121,6 @@ int insertFirst(LIST* L, int* head, Student student)
 		L->stud[first].next = *head;
 		*head = first;
 		retval = 2;
-	} else {
-		*head = allocSpace(L);
-		L->stud[*head].stud = student;
-		L->stud[*head].next = -1;
-		retval = 2;
 	}
 
 	return retval;
@@ -136,17 +131,17 @@ int insertLast(LIST* L, int* head, Student student)
 	int retval = 0;
 
 	if(L->avail != -1) {
-		CLIST x;
-
-		for(x = *head; L->stud[x].next != -1; x = L->stud[x].next) {}
-
 		CLIST temp = allocSpace(L);
 		
 		L->stud[temp].stud = student;
 		L->stud[temp].next = -1;
-		L->stud[x].next = temp;
 
+		CLIST* x;
+		for(x = head; L->stud[*x].next != -1; x = &L->stud[*x].next) {}
+		L->stud[*x].next = temp;
+		
 		retval = 2;
+
 	}
 
 	return retval;
