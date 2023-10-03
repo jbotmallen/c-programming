@@ -51,6 +51,19 @@ void deleteElem(Dictionary D, int elem)
     }
 }
 
+int member(Dictionary D, int elem)
+{
+    int x = hash(elem);
+    LIST trav;
+
+    for(trav = D[x]; trav != NULL && trav->elem < elem; trav = trav->next) {}
+
+    if(trav != NULL && trav->elem == elem) {
+        return x;
+    }
+    return -1;
+}
+
 void display(Dictionary D)
 {
     int x;

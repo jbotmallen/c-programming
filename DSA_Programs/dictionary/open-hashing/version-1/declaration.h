@@ -16,6 +16,8 @@ typedef LIST Dictionary[MAX];
 void init(Dictionary D);
 int hash(int num);
 void insert(Dictionary D, int elem);
+void deleteElem(Dictionary D, int elem);
+int member(Dictionary D, int elem);
 void display(Dictionary D);
 
 #endif
