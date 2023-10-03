@@ -1,56 +1,61 @@
-    #include<stdio.h>
-    #include<stdlib.h>
-    #include<string.h>
-    #define MAX 10
-    #define EMPTY '!'
-    #define DELETED '~'
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define MAX 10
+#define EMPTY '!'
+#define DELETED '~'
 
-    typedef char DICTIONARY[MAX];
+typedef char DICTIONARY[MAX];
 
-    void init(DICTIONARY D)
-    {
-        int x;
+void init(DICTIONARY D)
+{
+    int x;
 
-        for(x = 0; x < MAX; x++)
-        D[x] = EMPTY;
+    for(x = 0; x < MAX; x++)
+    D[x] = EMPTY;
+}
+
+void insert(DICTIONARY D, char elem, int idx)
+{
+    int x;
+
+    for(x = idx; D[x] != EMPTY && D[x] != DELETED && D[x] != elem; x = (x + 1) % MAX) {}
+
+    if(D[x] == EMPTY || D[x] == DELETED) D[x] = elem;
+}
+
+void populateList(DICTIONARY D)
+{
+    DICTIONARY set = { "ABCDEFGH" };
+    int setValues[8] = { 1, 4, 9, 9, 0, 3, 4, 3}, x;
+
+    for(x = 0; x < 8; x++) {
+        insert(D, set[x], setValues[x]);
     }
+}
 
-    void insert(DICTIONARY D, char elem, int idx)
-    {
-        int x;
+float getSearchLength(DICTIONARY D)
+{
+    int ret = 0, setValues[8] = { 1, 4, 9, 9, 0, 3, 4, 3}, x, y, ctr;
+    DICTIONARY set = { "ABCDEFGH" };
 
-        for(x = idx; D[x] != EMPTY && D[x] != DELETED && D[x] != elem; x = (x + 1) % MAX) {}
-
-        if(D[x] == EMPTY || D[x] == DELETED) D[x] = elem;
-    }
-
-    void populateList(DICTIONARY D)
-    {
-        DICTIONARY set = { "ABCDEFGH" };
-        int setValues[8] = { 1, 4, 9, 9, 0, 3, 4, 3}, x;
-
-        for(x = 0; x < 8; x++) {
-            insert(D, set[x], setValues[x]);
+    for(x = 0; x < 8; x++) {
+        for(y = setValues[x], ctr = 1; D[y] != set[x] && D[y] != EMPTY; y = (y + 1) % MAX) {
+          ctr++;          
         }
+        ret += ctr;
     }
+    
+    return (float)ret / 8;
+}
 
-    int getSearchLength(DICTIONARY D)
-    {
-        int ret = 0, setValues[8] = { 1, 4, 9, 9, 0, 3, 4, 3}, x, y, ctr;
-        DICTIONARY set = { "ABCDEFGH" };
+int main()
+{
+    DICTIONARY d;
 
-        for(x = 0; x < 8; x++) {
-            for(y = setValues[x], ctr = 1; D[y] != set[x] && D[y] != EMPTY; y = (y + 1) % MAX, ctr++) {}
-            ret += ctr;
-        }
-    }
+    init(d);
+    populateList(d);
+    printf("AVERAGE SEARCH LENGTH : %02.2f\n", getSearchLength(d));
 
-    int main()
-    {
-        DICTIONARY d;
-
-        init(d);
-        populateList(d);
-
-        return 0;
-    }
+    return 0;
+}
