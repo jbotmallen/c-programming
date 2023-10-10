@@ -12,10 +12,10 @@ int main()
     Section group1 = initializeSection(), group2, group3;
     insertSection(&group1, createStudent(createName("MARK ALLEN", "JUGALBOT", "PILAPIL"), createBirthDate(16, "APRIL", 2002),
                     createCourseAndYear("CS", "BS", 2), 1.59, 19104099));
-    insertSection(&group1, createStudent(createName("MARK ALLEN", "JUGALBOT", "PILAPIL"), createBirthDate(16, "APRIL", 2002),
-                    createCourseAndYear("CS", "BS", 2), 1.59, 19104099));
+    insertSection(&group1, createStudent(createName("STELLA", "SALDE", "SHEENA"), createBirthDate(20, "OCTOBER", 2000),
+                    createCourseAndYear("CS", "BS", 2), 1.69, 17105022));
     insertSection(&group1, createStudent(createName("JETHRO", "ENGUTAN", "ANAGAS"), createBirthDate(14, "SEPTEMBER", 2003),
-                    createCourseAndYear("IT", "BS", 2), 1.59, 22105047));
+                    createCourseAndYear("IT", "BS", 2), 2.59, 22105047));
 
     push(&L, group1);
     displayGroups(&L);

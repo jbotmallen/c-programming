@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/GitHub/c-programming/DSA_Programs/dictionary/closed-hashing/normal",
-      "program": "d:/GitHub/c-programming/DSA_Programs/dictionary/closed-hashing/normal/build/Debug/outDebug",
+      "cwd": "d:/GitHub/c-programming/DSA_Programs/dictionary/closed-hashing/v1",
+      "program": "d:/GitHub/c-programming/DSA_Programs/dictionary/closed-hashing/v1/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

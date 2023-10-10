@@ -17,6 +17,7 @@ void initialize(QUEUE* Q);
 void makeNull(QUEUE* Q);
 void enqueue(QUEUE* Q, int elem);
 void dequeue(QUEUE* Q);
+void display(QUEUE Q);
 
 int main()
 {
@@ -30,8 +31,14 @@ int main()
     enqueue(&chain, 20);
     enqueue(&chain, 30);
 
+    printf("BEFORE DELETING : \n");
+    display(chain);
+
     //DEQUEUE OPERATIONS
     dequeue(&chain);
+
+    printf("AFTER DELETING : \n");
+    display(chain);
 
     return 0;
 }
@@ -79,5 +86,18 @@ void dequeue(QUEUE* Q)
             Q->front = Q->front->next;
         }
         free(temp);
+    }
+}
+
+void display(QUEUE Q)
+{
+    if(Q.front != NULL) {
+        record* trav;
+
+        for(trav = Q.front; trav != NULL; trav = trav->next){
+            printf(" %d ", trav->elem);
+
+            (trav->next != NULL) ? printf("->") : printf("\n");
+        }
     }
 }
