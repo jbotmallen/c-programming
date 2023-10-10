@@ -43,13 +43,22 @@ void insert(DICTIONARY* D, int elem) {
     }
 }
 
+void display(DICTIONARY D) {
+    int x;
+
+    printf("CONTENTS OF THE DICTIONARY\n");
+    for (x = 0; x < MAX; x++) {
+        printf("ELEMENT AT %02d : %5d\n", x + 1, D.d[x]);
+    }
+}
+
 void deleteMem(DICTIONARY* D, int elem)
 {
     int primaryIdx = hash(elem);
     int x = primaryIdx;
 
     if(D->d[x] != elem) {
-        for(x = D->last; x < PRIMARY_MAX-1 && D->d[x]; x--) {}
+        for(x = D->last; x >= PRIMARY_MAX && D->d[x] != elem; x--) {}
         if(D->d[x] == elem) {
             D->d[x] = DELETED;
         }
@@ -58,11 +67,3 @@ void deleteMem(DICTIONARY* D, int elem)
     }
 }
 
-void display(DICTIONARY D) {
-    int x;
-
-    printf("CONTENTS OF THE DICTIONARY\n");
-    for (x = 0; x < MAX; x++) {
-        printf("ELEMENT AT %02d : %5d\n", x, D.d[x]);
-    }
-}
