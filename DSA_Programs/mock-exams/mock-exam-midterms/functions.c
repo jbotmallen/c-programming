@@ -42,8 +42,31 @@ Student createStudent(Name studName, BirthDate bDay, CourseAndYear courseAndYear
     stud.crsAndYear = courseAndYear;
     stud.gpa = gpa;
     stud.id = id;
+    stud.next = -1;
 
     return stud;
+}
+int hash(float N)
+{
+    float number = N;
+
+
+    if(number < 1.5){
+        return 0;
+    }
+    else if(number < 2 && number >= 1.5){
+        return 1;
+    }
+    else if(number<2.5 && number >=2){
+        return 2;
+    }
+    else if(number <=3 && number >= 2.5){
+        return 3;
+    }
+    else{
+        return -1;
+    }
+    return -1;
 }
 Section initializeSection()
 {
@@ -63,6 +86,17 @@ Section initializeSection()
 void initializeLevel(Level* level)
 {
     *level = NULL;
+}
+void initializeGradeLevel(groupSection G)
+{
+    int i;
+    Level new;
+    for(i = 0; i < MAXGRADELEVEL; i++) {
+        new = malloc(sizeof(struct level));
+        new->link = NULL;
+        new->group = initializeSection();
+        G[i] = new;
+    }
 }
 Bool isEmpty(Level L)
 {
@@ -169,4 +203,22 @@ void displayGroups(Level* L)
         push(L, temp->group);
         pop(&temp);
     }
+}
+
+Bool addListToGradeLevel(Level L, groupSection G)
+{
+    int travC, hashidx, i;
+    Bool retval = FALSE;
+    Level travD, new;
+
+    while(L != NULL) {
+        for(travC = L->group.head; travC != -1; travC = L->group.studentList[travC].next){
+            hashidx = hash(L->group.studentList[travC].gpa);
+            travD = G[hashidx];
+            insertSection(&travD->group, L->group.studentList[travC]);
+            retval = TRUE;
+        }
+        L = L->link;
+    }
+    return retval;
 }

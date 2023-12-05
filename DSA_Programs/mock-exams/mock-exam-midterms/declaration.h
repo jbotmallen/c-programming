@@ -4,6 +4,7 @@
 #include<stdio.h>
 #include<string.h>
 #define MAXNAME 30
+#define MAXGRADELEVEL 4
 #define MAX 50
 
 typedef char String[MAXNAME];
@@ -49,12 +50,15 @@ typedef struct level {
     struct level* link;
 } *Level;
 
+typedef Level groupSection[MAXGRADELEVEL];
+
 Name createName(String fName, String lName, String mName);
 CourseAndYear createCourseAndYear(String course, String dept, int year);
 BirthDate createBirthDate(int day, String month, int year);
 Student createStudent(Name studName, BirthDate bDay, CourseAndYear courseAndYear, float gpa, int id);
 Section initializeSection();
 void initializeLevel(Level* level);
+void initializeGradeLevel(groupSection G);
 void checkOperation(Bool check);
 Bool deallocSpace(Section* S, int index);
 int allocSpace(Section* S);
