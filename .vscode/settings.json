@@ -1,11 +1,14 @@
 {
   "files.associations": {
+    "*.erd": "json",
+    "*.vuerd": "json",
     "*.embeddedhtml": "html",
     "declaration.h": "c",
     "string.h": "c",
     "arraystack.h": "c",
     "stdio.h": "c",
-    "declarations.h": "c"
+    "declarations.h": "c",
+    "stdlib.h": "c"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",
