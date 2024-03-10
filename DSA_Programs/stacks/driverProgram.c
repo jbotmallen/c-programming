@@ -1,6 +1,6 @@
 #include<stdio.h>
-// #include"arrayStack.h"
-#include"linkedlistStack.h"
+ #include"arrayStack.h"
+//#include"linkedlistStack.h"
 
 int main()
 {

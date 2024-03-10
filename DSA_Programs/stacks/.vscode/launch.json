@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/GitHub/c-programming/DSA_Programs/binary-trees/P.O.T",
-      "program": "d:/GitHub/c-programming/DSA_Programs/binary-trees/P.O.T/build/Debug/outDebug",
+      "cwd": "d:/GitHub/c-programming/DSA_Programs/stacks",
+      "program": "d:/GitHub/c-programming/DSA_Programs/stacks/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

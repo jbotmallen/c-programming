@@ -13,6 +13,7 @@ int main()
 	display(tree);
 	
 	heapify(&tree);
+	display(tree);
 	
 	return 0;
 }
